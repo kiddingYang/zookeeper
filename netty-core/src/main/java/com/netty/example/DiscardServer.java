@@ -3,7 +3,6 @@ package com.netty.example;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -28,12 +27,14 @@ public class DiscardServer {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new DiscardServerHandler());
+                            ch.pipeline()
+//                                    .addLast(new LengthFieldBasedFrameDecoder(65535, 0, 2, 0, 2))
+                                    .addLast(new JdkDecoder())
+                                    .addLast(new JdkEncoder())
+                                    .addLast(new DiscardServerHandler());
 
                         }
-                    }).option(ChannelOption.SO_BACKLOG,128)
-                    .childOption(ChannelOption.SO_KEEPALIVE,true);
-
+                    });
             // 绑定端口，开始接收进来的连接
             ChannelFuture f = serverBootstrap.bind(port).sync(); // (7)
 
