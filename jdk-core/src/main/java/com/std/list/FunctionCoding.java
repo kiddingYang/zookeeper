@@ -1,44 +1,41 @@
 package com.std.list;
 
-import java.util.function.Consumer;
-
 public class FunctionCoding {
 
 
+    private MyFunction myFunction;
+
+    public FunctionCoding(MyFunction myFunction) {
+        this.myFunction = myFunction;
+    }
+
     public static void main(String[] args) {
 
+//        MyFunction cum = Fun::cum;
+        Runnable r = Fun::cum;
+        MyFunction cum = Fun::cum;
 
-        Consumer<Impl> implConsumer = Impl::uu;
-        Impl impl = new Impl();
-        implConsumer.accept(impl);
+        FunctionCoding coding = new FunctionCoding(Fun::cum);
+//        coding.getMyFunction().invoke("ccc");
     }
 
 
-    void TestFunction(MyFunction function) {
-        function.invoke();
+//    void TestFunction(MyFunction function) {
+//        function.invoke();
+//    }
+
+
+    public MyFunction getMyFunction() {
+        return myFunction;
     }
 
-
+    public void setMyFunction(MyFunction myFunction) {
+        this.myFunction = myFunction;
+    }
 }
 
-
+//
 @FunctionalInterface
 interface MyFunction {
-
     void invoke();
-
-}
-
-
-class Impl implements MyFunction {
-
-    @Override
-    public void invoke() {
-        System.out.println("invoke............");
-    }
-
-    public void uu() {
-        System.out.println("a");
-    }
-
 }
