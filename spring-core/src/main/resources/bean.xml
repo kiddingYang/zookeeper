@@ -4,6 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="person" class="com.spring.bean.Person"/>
+    <!--<bean id="person" class="com.spring.bean.Person"/>-->
+
+    <bean id="beanLife" class="com.spring.bean.BeanLife"/>
 
 </beans>
