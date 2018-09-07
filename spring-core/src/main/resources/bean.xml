@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <bean id="person" class="com.spring.bean.Person"/>
+    <bean id="person" class="com.spring.bean.Person">
+        <property name="car" ref="car"/>
+    </bean>
 
+    <bean id="car" class="com.spring.bean.Car"/>
+    <bean id="student" class="com.spring.bean.Student"/>
+    <bean id="teacher" class="com.spring.bean.Teacher"/>
+
+    <!--<bean id="bar" class="com.spring.bean.Bar">-->
+        <!--<constructor-arg ref="foo"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="foo" class="com.spring.bean.Foo">-->
+        <!--<constructor-arg ref="bar"/>-->
+    <!--</bean>-->
+
+    <bean id="test" class="com.spring.aop.AopTest"/>
+    <bean id="log" class="com.spring.aop.Log"/>
+
+    <aop:aspectj-autoproxy/>
 </beans>
