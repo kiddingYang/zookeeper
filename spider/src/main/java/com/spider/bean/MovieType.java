@@ -1,10 +1,10 @@
 package com.spider.bean;
 
-public class MovieType {
+/**
+ * 影片类型
+ */
+public enum MovieType {
 
-    private String movieTypeName;
-
-    private String movieListUrl;
 
 
 }

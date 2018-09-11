@@ -23,10 +23,6 @@ public class Movie {
      */
     private String description;
 
-    /**
-     * 评分
-     */
-    private String score;
 
     /**
      * 该影片指向的详情页地址
@@ -66,13 +62,6 @@ public class Movie {
         this.description = description;
     }
 
-    public String getScore() {
-        return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
 
     public String getHref() {
         return href;
@@ -89,8 +78,7 @@ public class Movie {
                 ", movieName='" + movieName + '\'' +
                 ", moviePicUrl='" + moviePicUrl + '\'' +
                 ", description='" + description + '\'' +
-                ", score='" + score + '\'' +
                 ", href='" + href + '\'' +
-                '}' + '\n';
+                '}';
     }
 }

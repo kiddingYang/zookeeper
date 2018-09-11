@@ -78,7 +78,6 @@ public class HttpUtils {
                     movie.setTitle(title);
                     movie.setMoviePicUrl(imgUrl);
                     movie.setDescription(desc);
-                    movie.setScore(score);
                     movieList.add(movie);
                 }
             }
