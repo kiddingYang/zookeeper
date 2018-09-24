@@ -1,13 +1,11 @@
 package com.spring.aop;
 
 
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * Created by Administrator on 2018/9/4.
- */
+
+
 public class AopTest {
 
     public void test() {

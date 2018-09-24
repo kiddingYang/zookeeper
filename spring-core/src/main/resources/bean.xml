@@ -9,7 +9,7 @@
     </bean>
     <!--<bean id="person" class="com.spring.bean.Person"/>-->
 
-    <bean id="beanLife" class="com.spring.bean.BeanLife"/>
+    <!--<bean id="beanLife" class="com.spring.bean.BeanLife"/>-->
 
     <bean id="car" class="com.spring.bean.Car"/>
     <bean id="student" class="com.spring.bean.Student"/>
@@ -25,6 +25,36 @@
 
     <bean id="test" class="com.spring.aop.AopTest"/>
     <bean id="log" class="com.spring.aop.Log"/>
+
+    <!-- aspect 方式 -->
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="logPointcut" expression="execution(* com.spring.aop.AopTest.*(..))"/>-->
+        <!--<aop:aspect id="logAspect" ref="log" >-->
+            <!--<aop:before method="beforeTest" pointcut-ref="logPointcut"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+
+    <bean id="testAdvisor" class="com.abc.TestAdvisor"/>
+    <!--<bean id="testAop" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+        <!--<property name="proxyInterfaces" value="com.test.AbcInterface"/>-->
+        <!--<property name="target">-->
+            <!--<bean class="com.test.TestTarget"/>-->
+        <!--</property>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--<value>testAdvisor</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!-- advisor 方式 -->
+    <!--<aop:config>
+        <aop:pointcut id="logPointcut" expression="execution(* com.spring.aop.AopTest.*(..))"/>
+        <aop:advisor advice-ref="log" pointcut-ref="logPointcut"/>
+    </aop:config>-->
+
+
 
     <aop:aspectj-autoproxy/>
 </beans>
